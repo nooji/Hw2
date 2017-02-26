@@ -4,10 +4,13 @@ import java.util.EmptyStackException;
 
 public final class Vectorz<T> implements StackInterface<T> {
 	private Vector<T> bag;
+	
 	public Vectorz(){
 		bag = new Vector<T>();
 	}
-	
+	public Vector<T> getBag(){
+		return bag;
+	}
 	@Override
 	public void push(T newEntry) {
 		bag.addElement(newEntry);
@@ -21,8 +24,8 @@ public final class Vectorz<T> implements StackInterface<T> {
 		}
 		else{
 			T temp = bag.lastElement();
-			//bag.remove(bag.indexOf(bag.lastElement()));
-			bag.remove(bag.capacity()-1);
+			bag.remove(bag.indexOf(bag.lastElement()));
+			//bag.remove(bag.capacity()-1);
 			return temp;
 		}
 	}

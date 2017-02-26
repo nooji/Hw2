@@ -19,6 +19,20 @@ public final class SingleLinked<T> implements QueueInterface<T> {
 			this.data = data;
 			this.next = next;
 		}
+		@SuppressWarnings("unused")
+		public void setData(T data){
+			this.data = data;
+		}
+		@SuppressWarnings("unused")
+		public void setNext(Node next){
+			this.next = next;
+		}
+		public Node getNext(){
+			return next;
+		}
+		public T getData(){
+			return data;
+		}
 	}
 
 	@Override
@@ -39,8 +53,11 @@ public final class SingleLinked<T> implements QueueInterface<T> {
 		// TODO Auto-generated method stub
 		T temp = null;
 		if(!isEmpty()){
-			temp = firstNode.data;
-			firstNode = firstNode.next;
+			temp = firstNode.getData();
+			firstNode =(firstNode.getNext());
+			if(firstNode == null){
+				lastNode = null;
+			}
 		}
 		return temp;
 	}
